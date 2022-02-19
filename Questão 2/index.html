@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Questão 3</title>
+    <script type="text/javascript">
+        function validarSenhaForca() {
+            var senha = document.getElementById('senhaForca').value;
+            var forca = 0;
+            document.getElementById("impSenha").innerHTML = "Senha " + senha;
+
+
+            if (senha.length >= 6) {
+
+                if (senha.match(/[A-Z]/)) {
+                    forca += 1;
+                }
+                if (senha.match(/[a-z]/)) {
+                    forca += 1
+                }
+                if (senha.match(/[!@#$%^&*()-+]/))
+                    forca += 1;
+
+                if (senha.match(/[1-9]/))
+                    forca += 1;
+
+            }
+
+            document.getElementById("impForcaSenha").innerHTML = forca;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>JavaScript - Calcular força da senha</h1>
+
+    <form>
+        <div id="impSenha"></div>
+        <div id="impForcaSenha"></div>
+
+        Nome: <input type="text" name="name" id="nameid" required><br><br>
+        Senha: <input type="password" name="senhaForca" id="senhaForca" onkeyup="validarSenhaForca()" required><br><br>
+
+        <input type="submit" onclick="return validarSenhaForca()">
+    </form>
+
+
+</body>
+
+</html>
